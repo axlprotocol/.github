@@ -1,0 +1,80 @@
+name: Bug report
+description: Report a bug in an AXL Protocol component
+title: "[BUG] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please fill out the form below.
+
+        For security issues, do **not** file a public bug. See [SECURITY.md](https://github.com/axlprotocol/.github/blob/main/SECURITY.md) for the private disclosure flow.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "Critical (data loss, security, complete outage)"
+        - "High (major feature broken)"
+        - "Medium (feature degraded, workaround exists)"
+        - "Low (cosmetic, edge case)"
+    validations:
+      required: true
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: Which AXL component is affected? (axl-core, axl-mcp-tools, compress.axlprotocol.org, bridge, docs, etc.)
+      placeholder: "axl-core"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Component version (run `pip show axl-core` for axl-core, etc.)
+      placeholder: "axl-core 0.10.2"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal reproduction. Code blocks render in markdown.
+      placeholder: |
+        1. Run `pip install axl-core==0.10.2`
+        2. Execute `from axl_core import compress; compress("...")`
+        3. Observe error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, LLM (if relevant)
+      placeholder: "macOS 14.2, Python 3.11, Claude Sonnet 4"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / output
+      description: Paste any error output, stack trace, or relevant logs
+      render: shell
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Anything else? Workarounds you've tried, related issues, ideas for a fix.

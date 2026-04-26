@@ -1,0 +1,67 @@
+name: Feature request
+description: Propose a new feature or enhancement
+title: "[FEAT] "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For substantive changes (kernel grammar, semantic operations, packet format, governance), open a [Discussion](https://axlprotocol.org/community/) first to gauge interest. RFC may be required - see [GOVERNANCE.md](https://github.com/axlprotocol/.github/blob/main/GOVERNANCE.md).
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: Which AXL component would the feature live in?
+      placeholder: "axl-core"
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case
+      description: What are you trying to do? What's the user story?
+      placeholder: |
+        As a developer building agent X, I need to compress prose Y so that
+        I can pass it through context window Z without losing meaning A.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What change would solve the use case?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you consider? Why are they inadequate?
+  - type: dropdown
+    id: change_class
+    attributes:
+      label: Change class (best guess)
+      description: See GOVERNANCE.md for the categories
+      options:
+        - "Editorial / typo / clarification (no RFC needed)"
+        - "Minor extension (additive, no RFC needed but discuss first)"
+        - "Breaking change (RFC required, 14-day comment window)"
+        - "Governance / foundation / trademark (RFC required, 30-day comment window)"
+        - "Not sure"
+    validations:
+      required: true
+  - type: dropdown
+    id: contribute
+    attributes:
+      label: Are you willing to contribute the implementation?
+      options:
+        - "Yes, I'll send a PR"
+        - "Yes, with guidance from a maintainer"
+        - "No, requesting from maintainers"
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Links to related issues, prior art in other projects, sketches, etc.
